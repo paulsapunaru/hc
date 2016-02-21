@@ -1,0 +1,14 @@
+daemon:
+  build: daemon
+  links:
+   - mongodb:mongodb
+webserver:
+  build: webserver
+  ports:
+   - "5000:5000"
+  links:
+   - mongodb:mongodb
+mongodb:
+  build: mongodb
+  ports:
+   - "27017:27017"
