@@ -2,11 +2,11 @@ import unittest
 
 from mock import patch
 
+import common
 from common import service, api_exception
-from server import api_exception
 
 
-@patch("reddit_bot.service.db.find")
+@patch("common.service.db.find")
 class TestService(unittest.TestCase):
     """Test suite for the service layer.
     The underlying find method is mocked in order to not execute the real find
@@ -45,8 +45,8 @@ class TestService(unittest.TestCase):
     def test_retrieve_items_valid_parameters(self, mock_find):
         # Call retrieve_items with valid parameters and see if they are
         # correctly passed on to the find method
-        service.retrieve_items(self.TEST_STRING, self.TEST_FROM, self.TEST_TO,
-                               self.TEST_KEYWORD)
+        common.service.retrieve_items(self.TEST_STRING, self.TEST_FROM, self.TEST_TO,
+                                      self.TEST_KEYWORD)
         mock_find.assert_called_once_with(self.TEST_STRING, self.TEST_FROM,
                                      self.TEST_TO, self.TEST_KEYWORD)
 
