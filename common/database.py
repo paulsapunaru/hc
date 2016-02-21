@@ -3,7 +3,7 @@ import os
 
 import pymongo
 
-__db = pymongo.MongoClient("mongodb", 27017).get_database("hc")
+__db = pymongo.MongoClient("localhost", 27017).get_database("hc")
 __collection = __db.get_collection("items")
 
 # This index is for simple searches, without keyword
