@@ -4,7 +4,7 @@ from bson import json_util
 from flask import Flask, request, Response, jsonify
 
 from common import service
-from api_exception import BadRequestException
+from common.api_exception import BadRequestException
 
 app = Flask(__name__)
 
